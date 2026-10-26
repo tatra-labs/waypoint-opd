@@ -30,8 +30,9 @@ The cost is one more frozen-teacher scoring pass.
 
 **waypoint-opd** is a small implementation of that gate and the loss around it, plus the two
 experiments it takes to say whether the idea is any good: a synthetic post-training run where it is
-known which shifts were real, and a measurement of how often a *real* released post-training run
-disagrees with itself.
+known which shifts were real — run here, with numbers below — and a measurement of how often a
+*real* released post-training run disagrees with itself, which is written and ready but needs
+9 GB of checkpoints that were not pulled onto this machine. The second one is the open question.
 
 ```bash
 pip install -e ".[dev,experiments]"
@@ -93,6 +94,13 @@ you are reproducing this kind of result, `k` is not a detail.
 
 ![candidates](figures/synthetic_k.png)
 
+Look at the right-hand panel, which drops the floor and shows only the states the gate is about.
+The red line *rises*: **the more candidates endpoint-only transfer scores, the more of the residue
+it faithfully absorbs**, from 0.027 at two candidates to 0.208 at sixty-four. Widening the candidate
+set makes the transfer more effective at copying whatever the endpoint difference says, including
+the parts that are an artefact of the run's path. The blue line is flat at zero. Gating is what
+makes a wide candidate set safe.
+
 ## When does gating cost you?
 
 The gate is a bet: *if the halves disagree, the residue is noise.* Two sweeps say what the bet is
@@ -128,6 +136,8 @@ share at 30% and vary how often those residues were actually worth having:
 
 <sub>`python experiments/synthetic.py --sweep honest` → `figures/synthetic_honest.png`</sub>
 
+![honest](figures/synthetic_honest.png)
+
 The crossover sits at 50%, where it should: the gate throws away a shift whenever the halves
 disagree, so it wins exactly when disagreement means noise more often than not. Below that it is
 discarding real supervision. Which makes the premise an empirical question, not a design choice.
@@ -152,7 +162,34 @@ Nothing is trained. Teachers are loaded one at a time and freed, so it runs in 8
 python experiments/checkpoints.py --device cuda --max-new-tokens 64
 ```
 
-<!--CHECKPOINT_RESULTS-->
+It reports, over every student-visited position: the distribution of `cos(early, late)`, the share
+of positions that disagree and are therefore gated off, the mean gate, and — the number that
+matters — the share of total endpoint-signal magnitude the gate removes. The figure it writes is a
+histogram of the cosine next to a scatter of shift magnitude against agreement, so you can see
+whether the disagreeing positions are the ones carrying a large shift or only the negligible ones.
+
+**This has not been run here, and that is the gap in this repository.** The three checkpoints are
+about 9 GB and this machine was not the place to pull them. The script is written and has been
+exercised end to end against a local stand-in — pointing all three roles at one model gives exactly
+the degenerate answer it should, every shift zero, every cosine undefined, every gate falling back
+to 1.0 — but the OLMo numbers are not mine to quote and there are none below. Run it and send them:
+
+```bash
+python experiments/checkpoints.py --device cuda --out results/checkpoints.json
+```
+
+Any other three-checkpoint chain works too, which is the point of the flags:
+
+```bash
+python experiments/checkpoints.py   --initial allenai/OLMo-2-1124-7B-SFT   --waypoint allenai/OLMo-2-1124-7B-DPO   --final allenai/OLMo-2-1124-7B-Instruct   --student allenai/OLMo-2-1124-7B
+```
+
+Two things worth saying in advance about what the answer would mean. The synthetic sweeps above fix
+the decision rule: gating pays if and only if disagreement indicates noise more than half the time,
+so a measured disagreement rate is necessary but not sufficient — a run can reverse itself
+constantly for good reasons. And the cost is fixed and small either way: three scoring passes
+instead of two, so **+50% on the frozen-teacher forward passes** and nothing at all on the student's
+backward pass.
 
 ## Using it
 
@@ -203,9 +240,12 @@ teachers and students. It does not publish the loss, the fallback rule, or code.
   distillation runs on 8B–30B students. Nothing in this repository reproduces those, and the
   tables above are not comparable to them.
 
-Still open, and the reason that last point stands: **an actual distillation run**, student trained
-both ways on the OLMo chain, scored on a downstream task. That needs more compute than a laptop and
-is the obvious next thing to add.
+Two things are open, and they are the obvious next additions:
+
+1. **The measurement on real checkpoints** above — one command, about 9 GB of weights, a few minutes
+   on any GPU.
+2. **An actual distillation run**: a student trained both ways on a real chain and scored on a
+   downstream task. That needs more compute than a laptop.
 
 ## Tests
 

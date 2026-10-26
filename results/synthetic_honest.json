@@ -4,38 +4,56 @@
     {
       "x": 0.0,
       "none": 1.0325156450271606,
+      "none_wandering": 0.20010924339294434,
       "endpoint": 0.41686588525772095,
-      "waypoint": 0.4484885533650716
+      "endpoint_wandering": 0.09964179247617722,
+      "waypoint": 0.4484885533650716,
+      "waypoint_wandering": 0.2001311182975769
     },
     {
       "x": 0.2,
       "none": 1.0176982482274373,
+      "none_wandering": 0.1529008944829305,
       "endpoint": 0.41648831963539124,
-      "waypoint": 0.4336932996908824
+      "endpoint_wandering": 0.09834162145853043,
+      "waypoint": 0.4336932996908824,
+      "waypoint_wandering": 0.15299179156621298
     },
     {
       "x": 0.4,
       "none": 1.0058940847714741,
+      "none_wandering": 0.11480405926704407,
       "endpoint": 0.4170682430267334,
-      "waypoint": 0.4218857983748118
+      "endpoint_wandering": 0.10038806001345317,
+      "waypoint": 0.4218857983748118,
+      "waypoint_wandering": 0.11489278574784596
     },
     {
       "x": 0.6,
       "none": 0.9943510691324869,
+      "none_wandering": 0.07901543875535329,
       "endpoint": 0.41630996267000836,
-      "waypoint": 0.41033969322840375
+      "endpoint_wandering": 0.09816895425319672,
+      "waypoint": 0.41033969322840375,
+      "waypoint_wandering": 0.07909474273522694
     },
     {
       "x": 0.8,
       "none": 0.9809330105781555,
+      "none_wandering": 0.035588487361868225,
       "endpoint": 0.41523970166842145,
-      "waypoint": 0.3969360689322154
+      "endpoint_wandering": 0.09443620592355728,
+      "waypoint": 0.3969360689322154,
+      "waypoint_wandering": 0.03570816417535146
     },
     {
       "x": 1.0,
       "none": 0.9695376753807068,
+      "none_wandering": 0.0,
       "endpoint": 0.41454679767290753,
-      "waypoint": 0.38556332389513653
+      "endpoint_wandering": 0.09238386899232864,
+      "waypoint": 0.38556332389513653,
+      "waypoint_wandering": 0.00019216033494255194
     }
   ]
 }

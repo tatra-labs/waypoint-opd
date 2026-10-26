@@ -145,7 +145,7 @@ def test_the_loss_moves_the_student_towards_the_signal():
         optimiser.zero_grad()
         loss.backward()
         optimiser.step()
-    assert float(loss) < first / 50
+    assert float(loss.detach()) < first / 50
 
 
 def test_gating_removes_exactly_the_positions_that_changed_their_mind():
