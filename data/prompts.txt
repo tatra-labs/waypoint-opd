@@ -1,0 +1,32 @@
+A shop sells pens in packs of 6 and pencils in packs of 8. If I buy 3 pen packs and 2 pencil packs, how many items do I have?
+What is 17 percent of 250? Show your working.
+Explain why dividing by zero is undefined, in two sentences.
+Write a Python function that returns the second largest number in a list.
+Rewrite this sentence so it is clearer: "The thing that was done by the team was the fixing of the bug that had been reported."
+I have 40 metres of fence and want a rectangular pen with the largest possible area. What should its sides be?
+Sort these from smallest to largest: 0.3, 1/4, 30%, 0.03.
+What is the difference between a list and a tuple in Python?
+A train leaves at 09:40 and arrives at 13:15. How long is the journey?
+Give three reasons a program might be slow even though the algorithm is correct.
+Summarise what a hash table is for someone who knows arrays.
+If a shirt costs 48 after a 20 percent discount, what was the original price?
+Write a regular expression that matches a UK postcode, and say what it does not catch.
+Why does adding an index to a database table sometimes make writes slower?
+Translate to French: "The meeting has been moved to Thursday afternoon."
+What is wrong with this code: for i in range(len(xs)): xs.pop(i)
+Describe the difference between accuracy and precision with one example each.
+A recipe for 4 people needs 300 g of rice. How much for 7 people?
+Name two things that go wrong when you store money as a floating point number.
+Explain recursion to a ten year old without using the word recursion.
+What is the remainder when 2 to the power 100 is divided by 7?
+Write a shell command that finds the ten largest files under the current directory.
+Why is it a bad idea to catch every exception and ignore it?
+A bag has 4 red and 6 blue marbles. I draw two without replacement. What is the probability both are red?
+Improve this commit message: "fixed stuff".
+What does it mean for a sorting algorithm to be stable, and when does it matter?
+I need to migrate a table with 500 million rows with no downtime. Sketch a plan.
+Is 1763 prime? Show how you decided.
+Explain what a race condition is, with a two-thread example.
+What are the trade-offs between storing dates as text and as a native date type?
+Write a function that checks whether a string is a palindrome, ignoring punctuation and case.
+If the probability of rain is 30 percent each day, what is the chance of at least one rainy day in three?

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "waypoint-opd"
+version = "0.1.0"
+description = "Gate a transferred RL policy shift by whether the halves of the run agree"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "tatra-labs"}]
+keywords = ["distillation", "rlhf", "post-training", "llm", "on-policy-distillation"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["torch>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+experiments = ["transformers>=4.40", "matplotlib>=3.6", "accelerate>=0.26"]
+
+[project.urls]
+Homepage = "https://github.com/tatra-labs/waypoint-opd"
+
+[tool.setuptools]
+packages = ["waypoint_opd"]

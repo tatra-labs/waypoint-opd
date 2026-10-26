@@ -1,0 +1,59 @@
+{
+  "sweep": "k",
+  "rows": [
+    {
+      "x": 2,
+      "none": 0.9695376753807068,
+      "none_wandering": 0.0,
+      "endpoint": 0.8776600956916809,
+      "endpoint_wandering": 0.027116483077406883,
+      "waypoint": 0.8692805767059326,
+      "waypoint_wandering": 0.0004683307682474454
+    },
+    {
+      "x": 4,
+      "none": 0.9695376753807068,
+      "none_wandering": 0.0,
+      "endpoint": 0.6721366047859192,
+      "endpoint_wandering": 0.05793780585130056,
+      "waypoint": 0.6539515455563863,
+      "waypoint_wandering": 0.00020752142881974578
+    },
+    {
+      "x": 8,
+      "none": 0.9695376753807068,
+      "none_wandering": 0.0,
+      "endpoint": 0.4145335952440898,
+      "endpoint_wandering": 0.09238405525684357,
+      "waypoint": 0.3855500916639964,
+      "waypoint_wandering": 0.00019243721423360208
+    },
+    {
+      "x": 16,
+      "none": 0.9695376753807068,
+      "none_wandering": 0.0,
+      "endpoint": 0.20176024734973907,
+      "endpoint_wandering": 0.132173220316569,
+      "waypoint": 0.16026360293229422,
+      "waypoint_wandering": 0.0001947849668795243
+    },
+    {
+      "x": 32,
+      "none": 0.9695376753807068,
+      "none_wandering": 0.0,
+      "endpoint": 0.07710327953100204,
+      "endpoint_wandering": 0.17640366653601328,
+      "waypoint": 0.02163664437830448,
+      "waypoint_wandering": 8.682404829111572e-05
+    },
+    {
+      "x": 64,
+      "none": 0.9695376753807068,
+      "none_wandering": 0.0,
+      "endpoint": 0.0653937558333079,
+      "endpoint_wandering": 0.2078217218319575,
+      "waypoint": 1.2053588761773426e-05,
+      "waypoint_wandering": 5.288251069638742e-07
+    }
+  ]
+}
